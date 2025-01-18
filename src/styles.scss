@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #f82ba9;
+  --secondary-color: #feedf7;
+  --white-color: #fff;
+  --black-color: #000;
+  --gray-color: #757f95;
+  --text-color: #160e4b;
+  --yellow-color: #fba707;
+  --red-color: #f05454;
+  --violite-color: #8c52ff;
+  --teal-color: #17a2b8;
+  --light-blue-color: #00bfff;
+  --green-color: #4caf50;
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+.primary-bg {
+  background-color: var(--primary-color);
+}
+.secondary-bg {
+  background-color: var(--secondary-color);
+}
+.white-color {
+  color: var(--white-color);
+}
+.white-bg {
+  background-color: var(--white-color);
+}
+.black-color {
+  color: var(--black-color);
+}
+.gray-color {
+  color: var(--gray-color);
+}
+.blue-color {
+  color: var(--text-color);
+}
+.blue-bg {
+  background-color: var(--text-color);
+}
+.yellow-bg {
+  background-color: var(--yellow-color);
+}
+.red {
+  color: var(--red-color);
+}
+.red-bg {
+  background-color: var(--red-color);
+}
+.teal-bg {
+  background-color: var(--teal-color);
+}
+.green-bg {
+  background-color: var(--green-color);
+}
+.violite-bg {
+  background-color: var(--violite-color);
+}
+.light-blue-bg {
+  background-color: var(--light-blue-color);
+}
+
+.inter,
+.roboto {
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.inter {
+  font-family: "Inter", serif;
+
+  &-regular {
+    font-weight: 400;
+  }
+  &-medium {
+    font-weight: 500;
+  }
+  &-semibold {
+    font-weight: 600;
+  }
+  &-bold {
+    font-weight: 700;
+  }
+}
+.roboto {
+  font-family: "Roboto", serif;
+
+  &-regular {
+    font-weight: 400;
+  }
+  &-medium {
+    font-weight: 500;
+  }
+  &-semibold {
+    font-weight: 600;
+  }
+  &-bold {
+    font-weight: 700;
+  }
+}
