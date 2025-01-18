@@ -4,20 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary-color: #f82ba9;
-  --secondary-color: #feedf7;
-  --white-color: #fff;
-  --black-color: #000;
-  --gray-color: #757f95;
-  --text-color: #160e4b;
-  --yellow-color: #fba707;
-  --red-color: #f05454;
-  --violite-color: #8c52ff;
-  --teal-color: #17a2b8;
-  --light-blue-color: #00bfff;
-  --green-color: #4caf50;
-}
+@import "./styles/_variables";
 
 .primary-color {
   color: var(--primary-color);
@@ -68,6 +55,55 @@
   background-color: var(--light-blue-color);
 }
 
+.border-radius-10 {
+  border-radius: var(--border-radius-small);
+}
+.border-radius-14 {
+  border-radius: var(--border-radius-medium);
+}
+.border-radius-20 {
+  border-radius: var(--border-radius-large);
+}
+.border-radius-30 {
+  border-radius: var(--border-radius-large-1);
+}
+.border-radius-50 {
+  border-radius: var(--border-radius-large-2);
+}
+
+.font-50 {
+  font-size: calc(var(--font-size-50) / 16 * 1rem);
+}
+.font-45 {
+  font-size: calc(var(--font-size-45) / 16 * 1rem);
+}
+.font-34 {
+  font-size: calc(var(--font-size-34) / 16 * 1rem);
+}
+.font-32 {
+  font-size: calc(var(--font-size-32) / 16 * 1rem);
+}
+.font-28 {
+  font-size: calc(var(--font-size-28) / 16 * 1rem);
+}
+.font-22 {
+  font-size: calc(var(--font-size-22) / 16 * 1rem);
+}
+.font-20 {
+  font-size: calc(var(--font-size-20) / 16 * 1rem);
+}
+.font-18 {
+  font-size: calc(var(--font-size-18) / 16 * 1rem);
+}
+.font-16 {
+  font-size: calc(var(--font-size-16) / 16 * 1rem);
+}
+.font-14 {
+  font-size: calc(var(--font-size-14) / 16 * 1rem);
+}
+.font-12 {
+  font-size: calc(var(--font-size-12) / 16 * 1rem);
+}
 .inter,
 .roboto {
   font-optical-sizing: auto;
