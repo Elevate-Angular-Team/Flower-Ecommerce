@@ -1,10 +1,59 @@
 .active {
-    color: var(--primary-color); /* لون النص للرابط النشط */
-    font-weight: bold; /* زيادة سمك النص */
-    border-bottom: 2px solid var(--primary-color); /* خط تحت الرابط النشط */
-  }
-  
-.img{
-width: 86px;
-height: 86px;
-}  
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.img {
+  width: 86px;
+  height: 86px;
+}
+
+#mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 235px;
+  height: 360px;
+  background-color: white;
+  transition: transform 0.3s ease-in-out;
+  outline: none;
+}
+
+#mobile-sidebar.open { 
+  transform: translateX(0); 
+}
+
+#mobile-sidebar:focus {
+  outline: 3px solid var(--primary-color); /* إضافة تمييز عند التركيز */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* جعل الشاشة معتمة */
+  z-index: 40;
+  display: none;
+}
+
+#overlay.active {
+  display: block; /* إظهار الـ overlay */
+}
+
+body {
+  transition: overflow 0.3s ease-in-out; /* إضافة انتقال سلس لمنع التمرير */
+}
+
+.x{
+  border: 3px solid var(--primary-color); 
+border-radius: 20px;
+}
+
+.x{
+  border: 3px solid var(--primary-color); 
+border-radius: 20px;
+}

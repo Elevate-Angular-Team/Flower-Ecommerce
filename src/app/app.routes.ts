@@ -5,20 +5,20 @@ export const routes: Routes = [
     path: 'login',
     loadComponent: () =>
       import('./core/pages/login/login.component').then(
-        (c) => c.LoginComponent
+        (m) => m.LoginComponent
       ),
   },
   {
     path: 'register',
     loadComponent: () =>
       import('./core/pages/register/register.component').then(
-        (c) => c.RegisterComponent
+        (m) => m.RegisterComponent
       ),
   },
   {
     path: '',
     loadComponent: () =>
-      import('./core/layout/layout.component').then((c) => c.LayoutComponent),
+      import('./core/layout/layout.component').then((m) => m.LayoutComponent),
     children: [
       {
         path: '',
@@ -29,28 +29,42 @@ export const routes: Routes = [
         path: 'home',
         loadComponent: () =>
           import('./features/pages/home/home.component').then(
-            (c) => c.HomeComponent
+            (m) => m.HomeComponent
           ),
       },
       {
         path: 'all-category',
         loadComponent: () =>
           import('./features/pages/all-category/all-category.component').then(
-            (c) => c.AllCategoryComponent
+            (m) => m.AllCategoryComponent
           ),
       },
       {
         path: 'about',
         loadComponent: () =>
           import('./features/pages/about/about.component').then(
-            (c) => c.AboutComponent
+            (m) => m.AboutComponent
           ),
       },
       {
         path: 'contact',
         loadComponent: () =>
           import('./features/pages/contact/contact.component').then(
-            (c) => c.ContactComponent
+            (m) => m.ContactComponent
+          ),
+      },
+      {
+        path: 'favorite',
+        loadComponent: () =>
+          import('./features/pages/favorite/favorite.component').then(
+            (m) => m.FavoriteComponent
+          ),
+      },
+      {
+        path: 'cart',
+        loadComponent: () =>
+          import('./features/pages/cart/cart.component').then(
+            (m) => m.CartComponent
           ),
       },
     ],
