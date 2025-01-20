@@ -27,10 +27,7 @@ export const routes: Routes = [
       },
       {
         path: 'home',
-        loadComponent: () =>
-          import('./features/pages/home/home.component').then(
-            (c) => c.HomeComponent
-          ),
+        loadComponent: () => import('./features/pages/home/home.component').then((c) => c.HomeComponent),
       },
       {
         path: 'all-category',
