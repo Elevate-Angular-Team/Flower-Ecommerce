@@ -11,6 +11,14 @@ import { GiftSliderComponent } from '../gift-slider/gift-slider.component';
 })
 export class SpecialGiftsComponent {
   specialGifts: Signal<SpecialGifts[]> = signal(SpecialGiftsMockup);
+  titleWithHighlightedWord = signal('');
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let title = this.specialGifts()[1].title;
+    title = title.replace(
+      'Gifts',
+      '<span class="text-[var(--primary-color)]">Gifts</span>'
+    );
+    this.titleWithHighlightedWord.set(title);
+  }
 }

@@ -1,1 +1,111 @@
-<p>special gifts works!</p>
+<header class="md:flex md:justify-center">
+  <div class="grid md:grid-cols-12 gap-6">
+    <div
+      [style]="{
+        'background-image': 'url(' + specialGifts()[0].image + ')'
+      }"
+      class="md:col-span-3 bg-cover bg-center bg-no-repeat flex items-center md:items-end pl-4 pb-6 sm:w-full min-h-[27.5rem] 2xl-min-h-[27.5rem] 2xl:w-[18.81rem] p-6 rounded-[0.38rem] md:rounded-[var(--border-radius-medium)]"
+    >
+      <div class="flex flex-col gap-[0.69rem] max-w-[15.5rem] min-h-[9.81rem]">
+        <h3
+          class="text-[var(--primary-color)] roboto font-bold text-[1.06rem] leading-[1.88rem] tracking-[0.31rem] uppercase"
+        >
+          {{ specialGifts()[0].subtitle }}
+        </h3>
+        <h5
+          class="inter font-bold max-w-[10.25rem] md:max-w-full leading-[1.94rem] text-[1.25rem] md:text-[1.63rem] text-[var(--text-color)] dark:text-white capitalize"
+        >
+          {{ specialGifts()[0].title }}
+        </h5>
+        <button
+          class="flex text-[0.75rem] md:text-[0.94rem] roboto leading-[1.69rem] max-w-[6.13rem] md:max-w-[7.13rem] items-center pl-[0.88rem] pt-[0.44rem] pb-[0.44rem] rounded-[0.56rem] font-medium text-center text-white bg-[var(--primary-color)]"
+        >
+          Shop Now
+          <img
+            class="ml-[0.29rem]"
+            src="assets/arrow-right.svg"
+            alt="arrow-right"
+          />
+        </button>
+      </div>
+    </div>
+    <!-- gift slider -->
+    <div class="md:col-span-9 w-full h-full 2xl:max-w-[59.69rem]">
+      <app-gift-slider>
+        @for(sliderImage of specialGifts()[1].image; track $index) {
+        <!-- setting the first image as the initial image slide -->
+        <div
+          class="hidden duration-700 ease-in-out min-h-[13.38rem] md:min-h-[27.5rem] align-center"
+          data-carousel-item
+        >
+          <div
+            class="absolute md:top-[3.75rem] z-40 flex flex-col gap-4 md:gap-6 md:max-w-[23.81rem] md:min-h-[20rem] py-[0.56rem] px-[1.19rem]"
+          >
+            <h3
+              class="text-[var(--primary-color)] inter font-bold text-[1rem] md:text-[1.25rem] leading-[0.67rem] md:leading-[1.56rem] tracking-[0.13rem] md:tracking-[0.25rem] uppercase"
+            >
+              {{ specialGifts()[1].subtitle }}
+            </h3>
+            <div>
+              <h5
+                class="inter font-bold max-w-[10.25rem] mb-2 md:mb-4 md:max-w-[21.44rem] leading-tight md:leading-[3.13rem] text-[1.25rem] md:text-[2.81rem] text-[var(--text-color)] dark:text-white capitalize"
+                [innerHTML]="titleWithHighlightedWord()"
+              ></h5>
+              <p
+                class="inter inter-regular text-[var(--text-color)] text-[0.75rem] md:text-[1.06rem] leading-tight md:leading-[1.75rem] max-w-[9.56rem] md:max-w-[22.31rem]"
+              >
+                {{ specialGifts()[1].description }}
+              </p>
+            </div>
+            <button
+              class="flex text-[0.75rem] md:text-[0.93rem] roboto md:leading-[1.68rem] max-w-[6.13rem] md:max-w-[7.69rem] items-center p-2 md:p-0 md:py-[0.58rem] md:pl-[1.17rem] md:pr-[0.97rem] rounded-[0.25rem] md:rounded-[0.58rem] font-medium text-white bg-[var(--primary-color)]"
+            >
+              Shop Now
+              <img
+                class="ml-2 md:ml-[0.29rem]"
+                src="assets/arrow-right.svg"
+                alt="arrow-right"
+              />
+            </button>
+          </div>
+          <img
+            [src]="sliderImage"
+            class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt="slider-image"
+          />
+        </div>
+        }
+      </app-gift-slider>
+    </div>
+    <!-- special gifts cards -->
+    <!-- start to loop from the third card -->
+    @for (giftCard of specialGifts().slice(2); track $index) {
+    <div
+      [style]="{
+        'background-image': 'url(' + giftCard.image + ' )'
+      }"
+      class="md:col-span-4 flex flex-col items-center md:items-end justify-center md:pr-4 bg-center bg-cover bg-no-repeat md:max-w-[25.69rem] min-h-[17rem] rounded-[var(--border-radius-medium)]"
+    >
+      <div
+        class="flex flex-col gap-[0.88rem] items-center md:items-end max-w-[11.75rem]"
+      >
+        <h3 class="inter text-[1rem] font-normal text-[var(--primary-color)]">
+          {{ giftCard.subtitle }}
+        </h3>
+
+        <h5
+          class="inter text-center md:text-right text-[1.25rem] font-semibold text-[var(--text-color)] dark:text-white"
+        >
+          {{ giftCard.title }}
+        </h5>
+
+        <button
+          class="flex items-center p-2 rounded-[var(--border-radius-small)] md:rounded-[var(--border-radius-large)] inter text-[0.75rem] md:text-[0.88rem] text-center text-white bg-[var(--primary-color)]"
+        >
+          {{ giftCard.id == 3 ? "Shop Now" : "Discover Now" }}
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</header>
