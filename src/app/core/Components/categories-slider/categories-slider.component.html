@@ -1,20 +1,29 @@
-<div class="parent grid sm:gird-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 container mx-auto ">
+<div class="parent  container mx-auto ">
+<!-- grid sm:gird-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 -->
 
+    <owl-carousel-o [options]="customOptions">
 
-    @for (category of allCategories; track $index) {
-        <div class="child secondary-bg p-4 flex rounded-xl">
-            <div class=" ">
-                <div class="w-20 h-20 rounded-full flex justify-center items-center primary-bg">
-                    <img [src]="category.image" alt="" width="70%">
-                </div>
-            </div>
-            <div class=" text-center ps-6 flex justify-center items-center flex-col">
-                <h4 class="blue-color font-18 font-semibold">{{category.name}}</h4>
-                <p class="gray-color font-16">{{category.productsCount}} items</p>
-            </div>
-        </div>
+        @for (category of allCategories; track $index) {
+            <ng-template carouselSlide >
+                <app-category [catImg]="category.image" [catName]="category.name" [catCount]="category.productsCount"></app-category>
+            </ng-template>
     }
+    
+    </owl-carousel-o>
 
 
 
 </div>
+
+
+<!-- <div class="child secondary-bg p-4 flex rounded-xl mx-2">
+    <div class=" ">
+        <div class="w-20 h-20 rounded-full flex justify-center items-center primary-bg">
+            <img [src]="category.image" class="w-1/2" alt="" >
+        </div>
+    </div>
+    <div class=" text-center ps-6 flex justify-center items-center flex-col">
+        <h4 class="blue-color font-18 font-semibold">{{category.name}}</h4>
+        <p class="gray-color font-16">{{category.productsCount}} items</p>
+    </div>
+</div> -->

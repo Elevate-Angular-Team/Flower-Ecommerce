@@ -140,4 +140,8 @@
     font-weight: 700;
   }
 }
- 
+
+
+.owl-carousel .owl-item img {
+  width: 70% !important;  /* Prevent width 100% */
+}
