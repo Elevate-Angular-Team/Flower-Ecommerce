@@ -5,20 +5,21 @@ export const routes: Routes = [
     path: 'login',
     loadComponent: () =>
       import('./core/pages/login/login.component').then(
-        (m) => m.LoginComponent
+        (c) => c.LoginComponent
       ),
   },
   {
     path: 'register',
     loadComponent: () =>
       import('./core/pages/register/register.component').then(
-        (m) => m.RegisterComponent
+        (c) => c.RegisterComponent
       ),
   },
   {
     path: '',
     loadComponent: () =>
-      import('./core/layout/layout.component').then((m) => m.LayoutComponent),
+      import('./core/layout/layout.component').then(
+        (c) => c.LayoutComponent),
     children: [
       {
         path: '',
@@ -29,42 +30,42 @@ export const routes: Routes = [
         path: 'home',
         loadComponent: () =>
           import('./features/pages/home/home.component').then(
-            (m) => m.HomeComponent
+            (c) => c.HomeComponent
           ),
       },
       {
         path: 'all-category',
         loadComponent: () =>
           import('./features/pages/all-category/all-category.component').then(
-            (m) => m.AllCategoryComponent
+            (c) => c.AllCategoryComponent
           ),
       },
       {
         path: 'about',
         loadComponent: () =>
           import('./features/pages/about/about.component').then(
-            (m) => m.AboutComponent
+            (c) => c.AboutComponent
           ),
       },
       {
         path: 'contact',
         loadComponent: () =>
           import('./features/pages/contact/contact.component').then(
-            (m) => m.ContactComponent
+            (c) => c.ContactComponent
           ),
       },
       {
         path: 'favorite',
         loadComponent: () =>
           import('./features/pages/favorite/favorite.component').then(
-            (m) => m.FavoriteComponent
+            (c) => c.FavoriteComponent
           ),
       },
       {
         path: 'cart',
         loadComponent: () =>
           import('./features/pages/cart/cart.component').then(
-            (m) => m.CartComponent
+            (c) => c.CartComponent
           ),
       },
     ],
