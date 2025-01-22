@@ -1,0 +1,76 @@
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+  <!-- Carousel wrapper -->
+  <div
+    class="relative min-h-[13.38rem] md:min-h-[27.5rem] w-full overflow-hidden rounded-[0.38rem] md:rounded-[var(--border-radius-medium)]"
+  >
+    <ng-content />
+  </div>
+  <!-- Slider indicators -->
+  <div
+    class="hidden md:flex absolute z-30 -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+  >
+    <button
+      type="button"
+      class="w-3 h-3 !rounded-[2.94rem] !bg-[var(--primary-color)] aria-[current=true]:!w-[1.19rem]"
+      aria-current="true"
+      aria-label="Slide 1"
+      data-carousel-slide-to="0"
+    ></button>
+    <button
+      type="button"
+      class="w-3 h-3 rounded-full !bg-[var(--primary-color)] aria-[current=true]:!w-[1.19rem]"
+      aria-current="false"
+      aria-label="Slide 2"
+      data-carousel-slide-to="1"
+    ></button>
+    <button
+      type="button"
+      class="w-3 h-3 rounded-full !bg-[var(--primary-color)] aria-[current=true]:!w-[1.19rem]"
+      aria-current="false"
+      aria-label="Slide 3"
+      data-carousel-slide-to="2"
+    ></button>
+    <button
+      type="button"
+      class="w-3 h-3 rounded-full !bg-[var(--primary-color)] aria-[current=true]:!w-[1.19rem]"
+      aria-current="false"
+      aria-label="Slide 4"
+      data-carousel-slide-to="3"
+    ></button>
+  </div>
+  <!-- Slider controls -->
+  <div
+    class="absolute bottom-0 end-0 z-30 ml-2 flex items-center justify-center pb-[0.59rem] md:pb-[1.5rem] pr-2 md:pr-[4.5rem]"
+  >
+    <button
+      type="button"
+      class="pr-[0.75rem] group focus:outline-none"
+      data-carousel-prev
+    >
+      <span
+        class="inline-flex items-center justify-center w-[1.13rem] h-[1.13rem] md:w-10 md:h-10 rounded-full bg-[var(--white-color)] group-hover:bg-white/50 cursor-pointer"
+      >
+        <img
+          src="assets/prev.svg"
+          class="w-[0.44rem] h-[0.63rem] md:w-4 md:h-4"
+          alt="prev-icon"
+        />
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+
+    <button type="button" class="group focus:outline-none" data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-[1.13rem] h-[1.13rem] md:w-10 md:h-10 rounded-full bg-[var(--white-color)] group-hover:bg-white/50 cursor-pointer"
+      >
+        <img
+          src="assets/next.svg"
+          class="w-[0.44rem] h-[0.63rem] md:w-4 md:h-4"
+          alt="next-icon"
+        />
+
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
+</div>
