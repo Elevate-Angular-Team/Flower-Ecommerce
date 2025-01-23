@@ -10,10 +10,10 @@ import { Observable , map , catchError , of } from 'rxjs';
 })
 export class HomeDataService implements HomeApi {
 
-  constructor(private _HttpClient:HttpClient , private _HomeDataAdapterService:HomeDataAdapterService) { }
+  constructor(private _httpClient:HttpClient , private _HomeDataAdapterService:HomeDataAdapterService) { }
 
   categories():Observable<any> {
-    return this._HttpClient.get(  homeEndpoint.Categories ).pipe(
+    return this._httpClient.get(  homeEndpoint.Categories ).pipe(
       map(res=>this._HomeDataAdapterService.adapt(res)),
       catchError(err=>of([err]))
     )

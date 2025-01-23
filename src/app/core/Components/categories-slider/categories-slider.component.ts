@@ -17,36 +17,6 @@ export class CategoriesSliderComponent implements OnInit {
 
   allCategories:any = []
 
-  // getCategories():Observable<any>{
-  //   return this._HttpClient.get("https://flower.elevateegy.com/api/v1/categories")
-  // }
-
-  ngOnInit(): void {
-      // this.getCategories().subscribe({
-      //   next:(res)=>{
-      //     this.allCategories = res.categories
-      //     console.log(this.allCategories);
-          
-      //   },
-      //   error:(err)=>{
-      //     console.log(err);
-      //   }
-      // })
-
-      this._HomeDataService.categories().subscribe({
-        next:(res)=>{
-          this.allCategories = res.categories
-          console.log(this.allCategories);
-          
-        },
-        error:(err)=>{
-          console.log(err);
-          
-        }
-      }
-      )
-  }
-
   customOptions: OwlOptions = {
     loop: true,
     autoplay:true,
@@ -77,5 +47,20 @@ export class CategoriesSliderComponent implements OnInit {
     },
     nav: false
   }
+
+  
+  ngOnInit(): void {
+      this._HomeDataService.categories().subscribe({
+        next:(res)=>{
+          this.allCategories = res.categories
+        },
+        error:(err)=>{
+          
+        }
+      }
+      )
+  }
+
+
 
 }

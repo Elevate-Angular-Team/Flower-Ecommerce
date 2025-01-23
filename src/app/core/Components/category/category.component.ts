@@ -8,12 +8,19 @@ import { Component, Input, input } from '@angular/core';
 })
 export class CategoryComponent {
 
-  @Input() catImg:string = "";
-  @Input() catName:string = "";
-  @Input() catCount!:number|string ;
-  @Input() custWidth:string = "w-20" ;
-  @Input() custHeight:string = "h-20" ;
 
-  
 
+  @Input() category: { 
+    img: string; 
+    name: string; 
+    count: number | string; 
+    width?: string; 
+    height?: string; 
+  } = { 
+    img: '',
+    name: '',
+    count: 0,
+    width: 'w-20',
+    height: 'h-20'
+  };
 }

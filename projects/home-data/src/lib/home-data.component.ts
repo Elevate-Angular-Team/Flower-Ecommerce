@@ -3,11 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'lib-home-data',
   imports: [],
-  template: `
-    <p>
-      home-data works!
-    </p>
-  `,
+  template: ``,
   styles: ``
 })
 export class HomeDataComponent {

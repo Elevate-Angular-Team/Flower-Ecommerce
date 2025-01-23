@@ -5,7 +5,7 @@
 
         @for (category of allCategories; track $index) {
             <ng-template carouselSlide >
-                <app-category [catImg]="category.image" [catName]="category.name" [catCount]="category.productsCount"></app-category>
+                <app-category [category]="{ img: category.image, name: category.name, count: category.productsCount , width:'w-20' , height:'h-20'}"></app-category>
             </ng-template>
     }
     

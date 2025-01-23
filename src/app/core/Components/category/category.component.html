@@ -1,11 +1,11 @@
 <div class="child  secondary-bg p-2 flex rounded-xl ">
     <div class="">
-        <div [class]="custWidth+' '+ custHeight + '  rounded-full flex justify-center items-center primary-bg'">
-            <img [src]="catImg" class="w-2/3" alt="" >
+        <div [class]="category.width +' '+ category.height + '  rounded-full flex justify-center items-center primary-bg'">
+            <img [src]="category.img" class="w-2/3" alt="" >
         </div>
     </div>
     <div class="  ps-3 flex justify-center  flex-col">
-        <h4 class="blue-color font-18 font-semibold">{{catName}}</h4>
-        <p class="gray-color font-16">{{catCount}} items</p>
+        <h4 class="blue-color font-18 font-semibold">{{category.name}}</h4>
+        <p class="gray-color font-16">{{category.count}} items</p>
     </div>
 </div>
