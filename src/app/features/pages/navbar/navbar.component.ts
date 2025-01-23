@@ -15,10 +15,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   @ViewChild('closeButton') closeButton!: ElementRef<HTMLButtonElement>;
   @ViewChild('overlay') overlay!: ElementRef<HTMLDivElement>;
 
-  constructor(private flowbiteService: FlowbiteService) {}
+  constructor(private _flowbiteService: FlowbiteService) {}
 
   ngOnInit(): void {
-    this.flowbiteService.loadFlowbite(flowbite => {});
+    this._flowbiteService.loadFlowbite(flowbite => {});
   }
 
   ngAfterViewInit(): void {
