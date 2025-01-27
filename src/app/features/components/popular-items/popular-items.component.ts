@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainServicesService } from '../../../core/services/main-services.service';
 import { PopularItems } from '../../../core/interfaces/PopularItems';
@@ -18,7 +18,9 @@ export class PopularItemsComponent implements OnInit {
   products: PopularItems[] = [];
   selectedCategoryIndex: number = 0;
 
-  constructor(private _mainService: MainServicesService) {}
+
+
+  private _mainService = inject(MainServicesService); // Use inject to get the service instance
 
   ngOnInit(): void {
     this.getCategories();
