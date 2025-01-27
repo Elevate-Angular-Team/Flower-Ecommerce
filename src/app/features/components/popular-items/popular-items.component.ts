@@ -1,41 +1,47 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainServicesService } from '../../../core/services/main-services.service';
 import { PopularItems } from '../../../core/interfaces/PopularItems';
 import { Category } from '../../../core/interfaces/category';
-import { ProductCardComponent } from '../product-card/product-card.component'; // Import the ProductCardComponent
-
+import { ProductCardComponent } from '../product-card/product-card.component';
+import { Subject, takeUntil } from 'rxjs'; 
 @Component({
   selector: 'app-popular-items',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent], // Add ProductCardComponent to imports
+  imports: [CommonModule, ProductCardComponent],
   templateUrl: './popular-items.component.html',
   styleUrls: ['./popular-items.component.scss']
 })
-export class PopularItemsComponent implements OnInit {
+export class PopularItemsComponent implements OnInit, OnDestroy {
   limit: number = 4;
   categories: Category[] = [];
   products: PopularItems[] = [];
   selectedCategoryIndex: number = 0;
 
-
-
-  private _mainService = inject(MainServicesService); // Use inject to get the service instance
-
+  private _mainService = inject(MainServicesService); 
+  private _destroy$ = new Subject<void>(); 
+  
   ngOnInit(): void {
     this.getCategories();
     this.loadDefaultCategoryProducts();
   }
 
+  ngOnDestroy(): void {
+    this._destroy$.next(); 
+    this._destroy$.complete(); 
+  }
+
   getCategories(): void {
-    this._mainService.getCategories(this.limit).subscribe({
-      next: (res) => {
-        this.categories = res.categories || [];
-      },
-      error: (err: any) => {
-        console.error('Error fetching categories', err);
-      }
-    });
+    this._mainService.getCategories(this.limit)
+      .pipe(takeUntil(this._destroy$)) 
+      .subscribe({
+        next: (res) => {
+          this.categories = res.categories || [];
+        },
+        error: (err: any) => {
+          console.error('Error fetching categories', err);
+        }
+      });
   }
 
   loadDefaultCategoryProducts(): void {
@@ -51,13 +57,15 @@ export class PopularItemsComponent implements OnInit {
   }
 
   fetchProductsByCategory(categoryName: string): void {
-    this._mainService.getProductsByCategory(categoryName).subscribe({
-      next: (res) => {
-        this.products = res.products || [];
-      },
-      error: (err: any) => {
-        console.error('Error fetching products', err);
-      }
-    });
+    this._mainService.getProductsByCategory(categoryName)
+      .pipe(takeUntil(this._destroy$)) 
+      .subscribe({
+        next: (res) => {
+          this.products = res.products || [];
+        },
+        error: (err: any) => {
+          console.error('Error fetching products', err);
+        }
+      });
   }
 }
