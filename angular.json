@@ -30,8 +30,10 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "src/styles.scss"
             ],
             "scripts": [
             ],
@@ -94,6 +96,39 @@
             ],
             "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        }
+      }
+    },
+    "home-data": {
+      "projectType": "library",
+      "root": "projects/home-data",
+      "sourceRoot": "projects/home-data/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "options": {
+            "project": "projects/home-data/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/home-data/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/home-data/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/home-data/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
