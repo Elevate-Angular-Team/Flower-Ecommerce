@@ -5,6 +5,7 @@ import { PopularItems } from '../../../core/interfaces/PopularItems';
 import { Category } from '../../../core/interfaces/category';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { Subject, takeUntil } from 'rxjs'; 
+
 @Component({
   selector: 'app-popular-items',
   standalone: true,
@@ -20,15 +21,9 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
 
   private _mainService = inject(MainServicesService); 
   private _destroy$ = new Subject<void>(); 
-  
+
   ngOnInit(): void {
     this.getCategories();
-    this.loadDefaultCategoryProducts();
-  }
-
-  ngOnDestroy(): void {
-    this._destroy$.next(); 
-    this._destroy$.complete(); 
   }
 
   getCategories(): void {
@@ -37,6 +32,7 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res) => {
           this.categories = res.categories || [];
+          this.loadDefaultCategoryProducts(); // Ensure it's called after categories are set
         },
         error: (err: any) => {
           console.error('Error fetching categories', err);
@@ -67,5 +63,10 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
           console.error('Error fetching products', err);
         }
       });
+  }
+
+  ngOnDestroy(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 }
