@@ -18,7 +18,8 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./core/layout/layout.component').then((c) => c.LayoutComponent),
+      import('./core/layout/layout.component').then(
+        (c) => c.LayoutComponent),
     children: [
       {
         path: '',
@@ -51,6 +52,20 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/pages/contact/contact.component').then(
             (c) => c.ContactComponent
+          ),
+      },
+      {
+        path: 'favorite',
+        loadComponent: () =>
+          import('./features/pages/favorite/favorite.component').then(
+            (c) => c.FavoriteComponent
+          ),
+      },
+      {
+        path: 'cart',
+        loadComponent: () =>
+          import('./features/pages/cart/cart.component').then(
+            (c) => c.CartComponent
           ),
       },
     ],
