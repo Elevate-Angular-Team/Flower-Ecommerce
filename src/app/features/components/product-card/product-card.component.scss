@@ -1,0 +1,52 @@
+.bg-yellow-500 {
+    background-color: var(--yellow-color);
+  }
+  
+  .text-white {
+    color: var(--white-color);
+  }
+  
+  .rounded-full {
+    border-radius: var(--border-radius-large-2);
+  }
+  
+  .text-xs {
+    font-size: var(--font-size-12);
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .rounded-lg {
+    border-radius: var(--border-radius-medium);
+  }
+  
+  .text-gray-800 {
+    color: var(--text-color);
+  }
+  
+  .text-red-500 {
+    color: var(--red-color);
+  }
+  
+  .text-green-500 {
+    color: var(--green-color);
+  }
+  
+  .rate i {
+    color: var( --yellow-color);
+  }
+  .price-text{
+    color: var(--red-color);
+  }
+  
+  .cart-icon{
+    background-color: var(--violite-color);
+    color: #fff;
+    padding: 20px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  
+  }

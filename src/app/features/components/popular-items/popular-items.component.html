@@ -1,0 +1,26 @@
+<div class="container mx-auto p-6">
+  <div class="flex justify-between items-center">
+    <h2 class="text-4xl font-bold text-gray-800">Popular Items</h2>
+    <div>
+      <ul class="flex space-x-4">
+        <li
+          *ngFor="let category of categories; let i = index"
+          class="cursor-pointer text-gray-600 hover:text-pink-500 transition-colors duration-300"
+          [ngClass]="{
+            'text-pink-500 border-b-2 border-pink-500': selectedCategoryIndex === i
+          }"
+          (click)="onCategoryClick(category, i)"
+        >
+          {{ category.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+    ></app-product-card>
+  </div>
+</div>

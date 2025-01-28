@@ -1,0 +1,50 @@
+h2 {
+  color: var(--text-color);
+  font-size: var(--font-size-32);
+  position: relative;
+  z-index: 999;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 60%;
+    height: 50%;
+    border-top-right-radius: var(--border-radius-large);
+    border-bottom-right-radius: var(--border-radius-large);
+    background-color: var(--secondary-color);
+    bottom: -2px;
+    left: 0;
+    z-index: -1;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 30%;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: -4px;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+li {
+  color: var(--text-color);
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.text-pink-500 {
+  color: var(--primary-color);
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.border-pink-500 {
+  border-color: var(--primary-color);
+}
